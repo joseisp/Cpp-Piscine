@@ -2,7 +2,7 @@
 
 NAME 	:= a.out
 CFLAGS 	:= -std=c++98
-SRC		:= main.cpp PhoneBook.cpp Contact.cpp
+SRC		:= main.cpp PhoneBook.cpp Contact.cpp questions.cpp
 HEADER 	:= PhoneBook.hpp Contact.hpp
 CC		:= c++
 OBJ		:= $(SRC:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:31:38 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/28 16:35:35 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:12:00 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,24 @@ public:
 
     Contact( void );
     ~Contact( void );
-    std::string setName( std::string newName);
-    std::string getName();
+
+    int timeNumber;
+
+    std::string getFirstName( void );
+    void setFirstName( std::string newFName);
+    std::string getLastName ( void );
+    void setLastName ( std::string newLName);
+    std::string getNickName ( void );
+    void setNickName ( std::string newNickName);
+    std::string getPhoneNumber ( void );
+    void setPhoneNumber (std::string newPhoneNumber);
+    std::string getDarkestSecret ( void );
+    void setDarkestSecret (std::string newDSecret);
+    
     
 private:
-
-    std::string name;
+//fName, lName, nName, phoneN, dSecret;
+    std::string _firstName, _lastName, _nickName, _phoneNumber,
+    _darkestSecret;
 
 };
