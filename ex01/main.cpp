@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/30 15:59:55 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/30 18:23:25 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void    showContacts( PhoneBook *honeyBook)
     int i = 0;
     int j = 0;
     int n1 = 0;
+    int n2 = 0;
+    std::string aux = honeyBook->teste[0].getFirstName();
     showTopCategories();
     while (j < 45)
     {
@@ -46,40 +48,39 @@ void    showContacts( PhoneBook *honeyBook)
     }
     std::cout << std::endl;
     j = 0;
-    while (j < 1)
+    std::cout << "|";
+    while (n1 < 4)
     {
-        std::cout << "|";
-        while (n1 < 4)
+        while (n2 < 10)
         {
-            std::cout << " ";
-            i++;
-            if (i == 10)
-            {
-                n1++;
-                i = 0;
-                std::cout << "|";
-            }
+            if (n2 < aux.length())
+                std::cout << aux[i];
+            else
+                std::cout << " ";
+            n2++;
         }
-        j++;
-        n1 = 0;
-        std::cout << std::endl;
+        n2 = 0;
+        n1++;
+        std::cout << "|";
+        //std::cout << " ";
+        // i++;
+        // if (i == 10)
+        // {
+        //     n1++;
+        //     i = 0;
+        // }
     }
-    j = 0;
-    while (j < 45)
-    {
-        std::cout << "-";
-        j++;
-    }
+    n1 = 0;
     std::cout << std::endl;
+    j = 0;
 }
 
 int main()
 {
     PhoneBook honeyBook;
-    
+    std::string testezao = "ai ai ai";
     int i = 0;
     std::string answer;
-    
     std::cout << "          The biggest phonebook in the world!" <<  std::endl;
     while (i == 0)
     {
@@ -97,8 +98,11 @@ int main()
             std::cout << CLEAR;
             showContacts(&honeyBook);
         }
-        else if (answer == "0" && i++)
+        else if (answer == "0")
+        {
             std::cout << "Good bye, have a nice day. :)" << std::endl;
+            i++;
+        }
         else if (answer != "0" || answer != "1" || answer != "2" || answer != "")
             std::cout << "Please, try again. :(" << std::endl;
     }
