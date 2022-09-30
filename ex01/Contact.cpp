@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:31:41 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/28 22:05:27 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:57:26 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Contact::Contact( void )
 {
-    this->_firstName = "jooj";
     this->timeNumber = 0;
     return ;
 }
