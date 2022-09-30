@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/30 18:23:25 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/30 20:00:24 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@ void    showTopCategories( void )
     std::cout << "|" << std::endl;
 
 }
+
+int whileNumber( PhoneBook *honeyBook )
+{
+    int i = 0;
+    int ret = 0;
+    while (i < 8)
+    {
+        if (honeyBook->teste[i].timeNumber != 0)
+        {
+            ret++;
+        }
+        i++;
+    }
+    if (ret == 0)
+        return 1;
+    else
+        return ret;
+}
  
 void    showContacts( PhoneBook *honeyBook)
 {
@@ -39,7 +57,7 @@ void    showContacts( PhoneBook *honeyBook)
     int j = 0;
     int n1 = 0;
     int n2 = 0;
-    std::string aux = honeyBook->teste[0].getFirstName();
+    int n3 = 0;
     showTopCategories();
     while (j < 45)
     {
@@ -49,8 +67,11 @@ void    showContacts( PhoneBook *honeyBook)
     std::cout << std::endl;
     j = 0;
     std::cout << "|";
+    n3 = whileNumber(honeyBook);
+    std::cout << "AAAAAAAAAAAAAAAA:           " << n3 << std::endl;
     while (n1 < 4)
     {
+        std::string aux = honeyBook->teste[0].getFirstName();
         while (n2 < 10)
         {
             if (n2 < aux.length())
@@ -62,13 +83,6 @@ void    showContacts( PhoneBook *honeyBook)
         n2 = 0;
         n1++;
         std::cout << "|";
-        //std::cout << " ";
-        // i++;
-        // if (i == 10)
-        // {
-        //     n1++;
-        //     i = 0;
-        // }
     }
     n1 = 0;
     std::cout << std::endl;
@@ -95,7 +109,7 @@ int main()
             insertNewMember(&honeyBook);
         else if (answer == "2")
         {
-            std::cout << CLEAR;
+            //std::cout << CLEAR;
             showContacts(&honeyBook);
         }
         else if (answer == "0")

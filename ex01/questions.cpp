@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/30 15:59:46 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/30 19:01:49 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void questionLName(PhoneBook *honeyBook, int numberCount)
 void    questionFName(PhoneBook *honeyBook)
 {
     std::string fName;
-    std::cout << CLEAR;
+    //std::cout << CLEAR;
     std::cin.clear();
     std::cin.sync();
     std::cout << "Insert the first name: " << std::endl;
