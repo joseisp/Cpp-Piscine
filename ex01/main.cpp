@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/29 21:16:22 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/09/29 22:01:33 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void    insertNewMember( PhoneBook *honeyBook)
 {
-    int count = 0;
-    std::string lName, nName, phoneN, dSecret;
     questionFName(honeyBook);
 }  
 
