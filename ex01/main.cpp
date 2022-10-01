@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/30 20:00:24 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/01 01:57:48 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ int whileNumber( PhoneBook *honeyBook )
     else
         return ret;
 }
+
+void    drawBottomOrTop( void )
+{
+    int j = 0;
+    
+    while (j < 45)
+    {
+        std::cout << "-";
+        j++;
+    }    
+}
  
 void    showContacts( PhoneBook *honeyBook)
 {
@@ -58,31 +69,35 @@ void    showContacts( PhoneBook *honeyBook)
     int n1 = 0;
     int n2 = 0;
     int n3 = 0;
-    showTopCategories();
-    while (j < 45)
-    {
-        std::cout << "-";
-        j++;
-    }
-    std::cout << std::endl;
-    j = 0;
-    std::cout << "|";
     n3 = whileNumber(honeyBook);
     std::cout << "AAAAAAAAAAAAAAAA:           " << n3 << std::endl;
-    while (n1 < 4)
+    showTopCategories();
+    drawBottomOrTop();
+    std::cout << std::endl;
+    j = 0;
+    while(i < n3)
     {
-        std::string aux = honeyBook->teste[0].getFirstName();
-        while (n2 < 10)
-        {
-            if (n2 < aux.length())
-                std::cout << aux[i];
-            else
-                std::cout << " ";
-            n2++;
-        }
-        n2 = 0;
-        n1++;
         std::cout << "|";
+        while (n1 < 4)
+        {
+            std::string aux = honeyBook->teste[0].getFirstName();
+            while (n2 < 10)
+            {
+                if (n2 < aux.length())
+                    std::cout << aux[i];
+                else
+                    std::cout << " ";
+                n2++;
+            }
+            n2 = 0;
+            n1++;
+            std::cout << "|";
+        }
+        std::cout << std::endl;
+        drawBottomOrTop();
+        std::cout << std::endl;
+        i++;
+        n1 = 0;
     }
     n1 = 0;
     std::cout << std::endl;
