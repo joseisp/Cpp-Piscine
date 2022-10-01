@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/01 01:57:48 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:44:20 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,38 @@ void    drawBottomOrTop( void )
         j++;
     }    
 }
+
+std::string getIndex(int n3)
+{
+    std::string ret;
+    
+    if(n3 == 1)
+        ret = "1";
+    else if (n3 == 2)
+        ret = "2";
+    else if (n3 == 3)
+        ret = "3";
+    else if (n3 == 4)
+        ret = "4";
+    else if (n3 == 5)
+        ret = "5";
+    else if (n3 == 6)
+        ret = "6";
+    else if (n3 == 7)
+        ret = "7";
+    else if (n3 == 8)
+        ret = "8";
+    return ret;   
+}
+
+std::string    getText(PhoneBook *honeyBook, int n1, int n3)
+{
+    std::string ret;
+    if (n1 == 0)
+        ret = getIndex(n3);
+    return ret;
+
+}
  
 void    showContacts( PhoneBook *honeyBook)
 {
@@ -75,12 +107,12 @@ void    showContacts( PhoneBook *honeyBook)
     drawBottomOrTop();
     std::cout << std::endl;
     j = 0;
-    while(i < n3)
+    while(i < n3) // linha
     {
         std::cout << "|";
-        while (n1 < 4)
+        while (n1 < 4) // coluna
         {
-            std::string aux = honeyBook->teste[0].getFirstName();
+            std::string aux = getText(honeyBook, n1, n3);
             while (n2 < 10)
             {
                 if (n2 < aux.length())
