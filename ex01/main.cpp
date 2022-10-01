@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/01 02:44:20 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:49:25 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,17 @@ std::string getIndex(int n3)
     return ret;   
 }
 
-std::string    getText(PhoneBook *honeyBook, int n1, int n3)
+std::string    getText(PhoneBook *honeyBook, int n1, int n3, int i)
 {
     std::string ret;
     if (n1 == 0)
-        ret = getIndex(n3);
+        ret = getIndex(i + 1);
+    else if (n1 == 1)
+        ret = honeyBook->teste[i].getFirstName();
+    else if (n1 == 2)
+        ret = honeyBook->teste[i].getLastName();
+    else if (n1 == 3)
+        ret = honeyBook->teste[i].getNickName();
     return ret;
 
 }
@@ -101,27 +107,32 @@ void    showContacts( PhoneBook *honeyBook)
     int n1 = 0;
     int n2 = 0;
     int n3 = 0;
+    int n4 = 0;
     n3 = whileNumber(honeyBook);
     std::cout << "AAAAAAAAAAAAAAAA:           " << n3 << std::endl;
     showTopCategories();
     drawBottomOrTop();
     std::cout << std::endl;
     j = 0;
-    while(i < n3) // linha
+    while(i < n3)
     {
         std::cout << "|";
-        while (n1 < 4) // coluna
+        while (n1 < 4)
         {
-            std::string aux = getText(honeyBook, n1, n3);
+            std::string aux = getText(honeyBook, n1, n3, i);
             while (n2 < 10)
             {
-                if (n2 < aux.length())
-                    std::cout << aux[i];
-                else
+                if ((10 - n2) > aux.length())
                     std::cout << " ";
+                else
+                {
+                    std::cout << aux[n4];
+                    n4++;
+                }
                 n2++;
             }
             n2 = 0;
+            n4 = 0;
             n1++;
             std::cout << "|";
         }
