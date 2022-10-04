@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/03 19:20:22 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:08:58 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ void questionDSecret(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, dSecret);
+    int i = 0;
+    while (i < dSecret.length())
+    {
+        if (!((dSecret[i] >= 65 && dSecret[i] <= 90) || (dSecret[i] >= 97 && dSecret[i] <= 122) || (dSecret[i] == 32)))
+        {
+            std::cout << "Please, insert only ascii caracters" << std::endl;
+            return ;
+        }
+        i++;
+    }
     honeyBook->teste[numberCount].setDarkestSecret(dSecret);
     honeyBook->teste[numberCount].timeNumber++;
 }
@@ -63,6 +73,16 @@ void questionNName(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, nName);
+    int i = 0;
+    while (i < nName.length())
+    {
+        if (!((nName[i] >= 65 && nName[i] <= 90) || (nName[i] >= 97 && nName[i] <= 122) || (nName[i] == 32)))
+        {
+            std::cout << "Please, insert only ascii caracters" << std::endl;
+            return ;
+        }
+        i++;
+    }
     honeyBook->teste[numberCount].setNickName(nName);
     questionPhoneN(honeyBook, numberCount);
 }
@@ -74,6 +94,17 @@ void questionLName(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, lName);
+    int i = 0;
+    while (i < lName.length())
+    {
+        if (!((lName[i] >= 65 && lName[i] <= 90) || (lName[i] >= 97 && lName[i] <= 122) || (lName[i] == 32) ))
+        {
+            std::cout << "Please, insert only ascii caracters" << std::endl;
+            return ;
+        }
+        
+        i++;
+    }
     honeyBook->teste[numberCount].setLastName(lName);
     questionNName(honeyBook, numberCount);
 }
@@ -87,6 +118,16 @@ void    questionFName(PhoneBook *honeyBook)
     std::cin.sync();
     std::cout << "Insert the first name: " << std::endl;
     std::getline(std::cin, fName);
+    int i = 0;
+    while (i < fName.length())
+    {
+        if (!((fName[i] >= 65 && fName[i] <= 90) || (fName[i] >= 97 && fName[i] <= 122) || (fName[i] == 32)))
+        {
+            std::cout << "Please, insert only ascii caracters" << std::endl;
+            return ;
+        }
+        i++;
+    }
     int numberCount = getNumber( honeyBook);
     honeyBook->teste[numberCount].setFirstName(fName);
     questionLName(honeyBook, numberCount);
