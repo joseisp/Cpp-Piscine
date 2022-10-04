@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/01 13:49:25 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:32:29 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ std::string    getText(PhoneBook *honeyBook, int n1, int n3, int i)
 {
     std::string ret;
     if (n1 == 0)
+    {
         ret = getIndex(i + 1);
+        honeyBook->teste[i].indexNumber = ret;
+    }
     else if (n1 == 1)
         ret = honeyBook->teste[i].getFirstName();
     else if (n1 == 2)
@@ -98,6 +101,34 @@ std::string    getText(PhoneBook *honeyBook, int n1, int n3, int i)
         ret = honeyBook->teste[i].getNickName();
     return ret;
 
+}
+
+void    showIndex( PhoneBook *honeyBook)
+{
+    std::string answer;
+    int i = 0;
+    std::cout << "Would you like to see the Index? [1] Yes [2] No: " << std::endl;
+    std::getline(std::cin, answer);
+    if (answer == "1")
+    {
+        std::cout << "Select the index number:" << std::endl;
+        std::getline(std::cin, answer);
+        while (i < 8)
+        {
+            if (honeyBook->teste[i].indexNumber == answer)
+            {
+                std::cout << "First Name: " <<honeyBook->teste[i].getFirstName() << std::endl;
+                std::cout << "Last Name: " <<honeyBook->teste[i].getLastName() << std::endl;
+                std::cout << "Nick Name: " <<honeyBook->teste[i].getNickName() << std::endl;
+                std::cout << "Phone Number: " <<honeyBook->teste[i].getPhoneNumber() << std::endl;
+                std::cout << "Darkest Secret: " <<honeyBook->teste[i].getDarkestSecret() << std::endl;
+                break;
+            }
+            i++;
+        }
+    }
+    else
+        return ;
 }
  
 void    showContacts( PhoneBook *honeyBook)
@@ -109,11 +140,9 @@ void    showContacts( PhoneBook *honeyBook)
     int n3 = 0;
     int n4 = 0;
     n3 = whileNumber(honeyBook);
-    std::cout << "AAAAAAAAAAAAAAAA:           " << n3 << std::endl;
     showTopCategories();
     drawBottomOrTop();
     std::cout << std::endl;
-    j = 0;
     while(i < n3)
     {
         std::cout << "|";
@@ -142,19 +171,16 @@ void    showContacts( PhoneBook *honeyBook)
         i++;
         n1 = 0;
     }
-    n1 = 0;
     std::cout << std::endl;
-    j = 0;
+    showIndex(honeyBook);
 }
 
 int main()
 {
     PhoneBook honeyBook;
-    std::string testezao = "ai ai ai";
-    int i = 0;
     std::string answer;
     std::cout << "          The biggest phonebook in the world!" <<  std::endl;
-    while (i == 0)
+    while (1)
     {
         std::cout << "Please, choose de option: " << std::endl;
         std::cout << "[1] add" << std::endl;
@@ -167,13 +193,13 @@ int main()
             insertNewMember(&honeyBook);
         else if (answer == "2")
         {
-            //std::cout << CLEAR;
+            std::cout << CLEAR;
             showContacts(&honeyBook);
         }
         else if (answer == "0")
         {
             std::cout << "Good bye, have a nice day. :)" << std::endl;
-            i++;
+            break;
         }
         else if (answer != "0" || answer != "1" || answer != "2" || answer != "")
             std::cout << "Please, try again. :(" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:31:38 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/30 18:52:13 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:07:33 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
     ~Contact( void );
 
     int timeNumber;
+    std::string indexNumber;
 
     std::string getFirstName( void );
     void setFirstName( std::string newFName);
