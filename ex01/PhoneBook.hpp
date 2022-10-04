@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 20:20:30 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/29 19:01:11 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:34:59 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     PhoneBook( void );
     ~PhoneBook( void );
 
-    Contact teste[8];
+    Contact contact[8];
 };
 
 // Functions to run the project

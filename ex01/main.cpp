@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 14:35:27 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:35:43 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int whileNumber( PhoneBook *honeyBook )
     int ret = 0;
     while (i < 8)
     {
-        if (honeyBook->teste[i].timeNumber != 0)
+        if (honeyBook->contact[i].timeNumber != 0)
         {
             ret++;
         }
@@ -91,14 +91,14 @@ std::string    getText(PhoneBook *honeyBook, int n1, int n3, int i)
     if (n1 == 0)
     {
         ret = getIndex(i + 1);
-        honeyBook->teste[i].indexNumber = ret;
+        honeyBook->contact[i].indexNumber = ret;
     }
     else if (n1 == 1)
-        ret = honeyBook->teste[i].getFirstName();
+        ret = honeyBook->contact[i].getFirstName();
     else if (n1 == 2)
-        ret = honeyBook->teste[i].getLastName();
+        ret = honeyBook->contact[i].getLastName();
     else if (n1 == 3)
-        ret = honeyBook->teste[i].getNickName();
+        ret = honeyBook->contact[i].getNickName();
     return ret;
 
 }
@@ -115,13 +115,13 @@ void    showIndex( PhoneBook *honeyBook)
         std::getline(std::cin, answer);
         while (i < 8)
         {
-            if (honeyBook->teste[i].indexNumber == answer)
+            if (honeyBook->contact[i].indexNumber == answer)
             {
-                std::cout << "First Name: " <<honeyBook->teste[i].getFirstName() << std::endl;
-                std::cout << "Last Name: " <<honeyBook->teste[i].getLastName() << std::endl;
-                std::cout << "Nick Name: " <<honeyBook->teste[i].getNickName() << std::endl;
-                std::cout << "Phone Number: " <<honeyBook->teste[i].getPhoneNumber() << std::endl;
-                std::cout << "Darkest Secret: " <<honeyBook->teste[i].getDarkestSecret() << std::endl;
+                std::cout << "First Name: " <<honeyBook->contact[i].getFirstName() << std::endl;
+                std::cout << "Last Name: " <<honeyBook->contact[i].getLastName() << std::endl;
+                std::cout << "Nick Name: " <<honeyBook->contact[i].getNickName() << std::endl;
+                std::cout << "Phone Number: " <<honeyBook->contact[i].getPhoneNumber() << std::endl;
+                std::cout << "Darkest Secret: " <<honeyBook->contact[i].getDarkestSecret() << std::endl;
                 break;
             }
             i++;

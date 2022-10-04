@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 16:47:08 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:35:16 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int getNumber(PhoneBook *honeyBook)
             n2 = 0;
         else
             n2 = n1;
-        if (honeyBook->teste[n2 + 1].timeNumber < honeyBook->teste[n1].timeNumber) 
+        if (honeyBook->contact[n2 + 1].timeNumber < honeyBook->contact[n1].timeNumber) 
             return n2 + 1;
         if ( n1 == 8)
             break;
@@ -51,8 +51,8 @@ void questionDSecret(PhoneBook *honeyBook, int numberCount)
         }
         i++;
     }
-    honeyBook->teste[numberCount].setDarkestSecret(dSecret);
-    honeyBook->teste[numberCount].timeNumber++;
+    honeyBook->contact[numberCount].setDarkestSecret(dSecret);
+    honeyBook->contact[numberCount].timeNumber++;
 }
 
 void questionPhoneN(PhoneBook *honeyBook, int numberCount)
@@ -72,7 +72,7 @@ void questionPhoneN(PhoneBook *honeyBook, int numberCount)
         }
         i++;
     }
-    honeyBook->teste[numberCount].setPhoneNumber(phoneN);
+    honeyBook->contact[numberCount].setPhoneNumber(phoneN);
     questionDSecret(honeyBook, numberCount);
 }
 
@@ -93,7 +93,7 @@ void questionNName(PhoneBook *honeyBook, int numberCount)
         }
         i++;
     }
-    honeyBook->teste[numberCount].setNickName(nName);
+    honeyBook->contact[numberCount].setNickName(nName);
     questionPhoneN(honeyBook, numberCount);
 }
 
@@ -115,7 +115,7 @@ void questionLName(PhoneBook *honeyBook, int numberCount)
         
         i++;
     }
-    honeyBook->teste[numberCount].setLastName(lName);
+    honeyBook->contact[numberCount].setLastName(lName);
     questionNName(honeyBook, numberCount);
 }
 
@@ -139,6 +139,6 @@ void    questionFName(PhoneBook *honeyBook)
         i++;
     }
     int numberCount = getNumber( honeyBook);
-    honeyBook->teste[numberCount].setFirstName(fName);
+    honeyBook->contact[numberCount].setFirstName(fName);
     questionLName(honeyBook, numberCount);
 }
