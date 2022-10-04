@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 16:08:58 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:47:08 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void questionDSecret(PhoneBook *honeyBook, int numberCount)
     int i = 0;
     while (i < dSecret.length())
     {
-        if (!((dSecret[i] >= 65 && dSecret[i] <= 90) || (dSecret[i] >= 97 && dSecret[i] <= 122) || (dSecret[i] == 32)))
+        if (!((dSecret[i] >= 0 && dSecret[i] <= 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -62,6 +62,16 @@ void questionPhoneN(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, phoneN);
+    int i = 0;
+    while (i < phoneN.length())
+    {
+        if (!((phoneN[i] >= 48 && phoneN[i] <= 57) || (phoneN[i] == 32)))
+        {
+            std::cout << "Please, insert only ascii caracters" << std::endl;
+            return ;
+        }
+        i++;
+    }
     honeyBook->teste[numberCount].setPhoneNumber(phoneN);
     questionDSecret(honeyBook, numberCount);
 }
@@ -76,7 +86,7 @@ void questionNName(PhoneBook *honeyBook, int numberCount)
     int i = 0;
     while (i < nName.length())
     {
-        if (!((nName[i] >= 65 && nName[i] <= 90) || (nName[i] >= 97 && nName[i] <= 122) || (nName[i] == 32)))
+        if (!((nName[i] >= 0 && nName[i] <= 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -97,7 +107,7 @@ void questionLName(PhoneBook *honeyBook, int numberCount)
     int i = 0;
     while (i < lName.length())
     {
-        if (!((lName[i] >= 65 && lName[i] <= 90) || (lName[i] >= 97 && lName[i] <= 122) || (lName[i] == 32) ))
+        if (!((lName[i] >= 0 && lName[i] <= 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -121,7 +131,7 @@ void    questionFName(PhoneBook *honeyBook)
     int i = 0;
     while (i < fName.length())
     {
-        if (!((fName[i] >= 65 && fName[i] <= 90) || (fName[i] >= 97 && fName[i] <= 122) || (fName[i] == 32)))
+        if (!((fName[i] >= 0 && fName[i] <= 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
