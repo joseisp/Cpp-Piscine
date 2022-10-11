@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 19:35:16 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/04 21:57:05 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void questionPhoneN(PhoneBook *honeyBook, int numberCount)
     {
         if (!((phoneN[i] >= 48 && phoneN[i] <= 57) || (phoneN[i] == 32)))
         {
-            std::cout << "Please, insert only ascii caracters" << std::endl;
+            std::cout << "Please, insert only numbers caracters" << std::endl;
             return ;
         }
         i++;

@@ -1,7 +1,7 @@
 .PHONY = clean fclean re all
 
 NAME 	:= a.out
-CFLAGS 	:= -std=c++98
+CFLAGS 	:= -std=c++98 -Wall -Wextra -Werror
 SRC		:= main.cpp PhoneBook.cpp Contact.cpp questions.cpp
 HEADER 	:= PhoneBook.hpp Contact.hpp
 CC		:= c++
