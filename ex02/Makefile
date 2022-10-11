@@ -1,7 +1,7 @@
 .PHONY = clean fclean re all
 
 NAME 	:= a.out
-CFLAGS 	:= -std=c++98
+CFLAGS 	:= -std=c++98 -Wall -Wextra -Werror
 SRC		:= Account.cpp tests.cpp
 HEADER 	:= Account.hpp
 CC		:= c++
