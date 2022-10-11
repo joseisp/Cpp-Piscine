@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 19:35:43 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:59:15 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ std::string getIndex(int n3)
     return ret;   
 }
 
-std::string    getText(PhoneBook *honeyBook, int n1, int n3, int i)
+std::string    getText(PhoneBook *honeyBook, int n1, int i)
 {
     std::string ret;
     if (n1 == 0)
@@ -134,7 +134,6 @@ void    showIndex( PhoneBook *honeyBook)
 void    showContacts( PhoneBook *honeyBook)
 {
     int i = 0;
-    int j = 0;
     int n1 = 0;
     int n2 = 0;
     int n3 = 0;
@@ -148,10 +147,11 @@ void    showContacts( PhoneBook *honeyBook)
         std::cout << "|";
         while (n1 < 4)
         {
-            std::string aux = getText(honeyBook, n1, n3, i);
+            std::string aux = getText(honeyBook, n1, i);
             while (n2 < 10)
             {
-                if ((10 - n2) > aux.length())
+                std::size_t teste = 10 - n2;
+                if (teste > aux.length())
                     std::cout << " ";
                 else
                 {

@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:27:19 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 21:57:05 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:07:08 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void questionDSecret(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, dSecret);
-    int i = 0;
+    std::size_t i = 0;
     while (i < dSecret.length())
     {
-        if (!((dSecret[i] >= 0 && dSecret[i] <= 127)))
+        if (!((dSecret[i] >= 0 && dSecret[i] < 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -62,7 +62,7 @@ void questionPhoneN(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, phoneN);
-    int i = 0;
+    std::size_t i = 0;
     while (i < phoneN.length())
     {
         if (!((phoneN[i] >= 48 && phoneN[i] <= 57) || (phoneN[i] == 32)))
@@ -83,10 +83,10 @@ void questionNName(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, nName);
-    int i = 0;
+    std::size_t i = 0;
     while (i < nName.length())
     {
-        if (!((nName[i] >= 0 && nName[i] <= 127)))
+        if (!((nName[i] >= 0 && nName[i] < 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -104,10 +104,10 @@ void questionLName(PhoneBook *honeyBook, int numberCount)
     std::cin.clear();
     std::cin.sync();
     std::getline(std::cin, lName);
-    int i = 0;
+    std::size_t i = 0;
     while (i < lName.length())
     {
-        if (!((lName[i] >= 0 && lName[i] <= 127)))
+        if (!((lName[i] >= 0 && lName[i] < 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
@@ -128,10 +128,10 @@ void    questionFName(PhoneBook *honeyBook)
     std::cin.sync();
     std::cout << "Insert the first name: " << std::endl;
     std::getline(std::cin, fName);
-    int i = 0;
+    std::size_t i = 0;
     while (i < fName.length())
     {
-        if (!((fName[i] >= 0 && fName[i] <= 127)))
+        if (!((fName[i] >= 0 && fName[i] < 127)))
         {
             std::cout << "Please, insert only ascii caracters" << std::endl;
             return ;
