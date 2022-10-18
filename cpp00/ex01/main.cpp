@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:26 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/11 17:59:15 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/14 03:50:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,12 @@ std::string    getText(PhoneBook *honeyBook, int n1, int i)
     std::string ret;
     if (n1 == 0)
     {
-        ret = getIndex(i + 1);
-        honeyBook->contact[i].indexNumber = ret;
+        if (honeyBook->contact[0].timeNumber != 0)
+        {
+            ret = getIndex(i + 1);
+            honeyBook->contact[i].indexNumber = ret;
+        }
+            
     }
     else if (n1 == 1)
         ret = honeyBook->contact[i].getFirstName();
@@ -113,6 +117,7 @@ void    showIndex( PhoneBook *honeyBook)
     {
         std::cout << "Select the index number:" << std::endl;
         std::getline(std::cin, answer);
+        
         while (i < 8)
         {
             if (honeyBook->contact[i].indexNumber == answer)
@@ -124,11 +129,21 @@ void    showIndex( PhoneBook *honeyBook)
                 std::cout << "Darkest Secret: " <<honeyBook->contact[i].getDarkestSecret() << std::endl;
                 break;
             }
+            else if (i + 1 == 8)
+                std::cout << "Error, insert a valid index!" << std::endl;
             i++;
         }
     }
-    else
+    else if (answer == "2")
+    {
+        std::cout << "Bye bye :)" << std::endl; 
         return ;
+    }
+    else
+    {
+        std::cout << "I don't understand you! i'll return you to main menu! :(" << std::endl;
+        return ;   
+    }
 }
  
 void    showContacts( PhoneBook *honeyBook)
@@ -150,13 +165,16 @@ void    showContacts( PhoneBook *honeyBook)
             std::string aux = getText(honeyBook, n1, i);
             while (n2 < 10)
             {
-                std::size_t teste = 10 - n2;
-                if (teste > aux.length())
+                std::size_t len = 10 - n2;
+                if (len > aux.length())
                     std::cout << " ";
                 else
                 {
-                    std::cout << aux[n4];
-                    n4++;
+                    if (aux.length() > 10 && n2 == 9)
+                        std::cout << ".";
+                    else
+                        std::cout << aux[n4];
+                        n4++;       
                 }
                 n2++;
             }
@@ -182,26 +200,23 @@ int main()
     std::cout << "          The biggest phonebook in the world!" <<  std::endl;
     while (1)
     {
-        std::cout << "Please, choose de option: " << std::endl;
-        std::cout << "[1] add" << std::endl;
-        std::cout << "[2] search" << std::endl;
-        std::cout << "[0] exit" << std::endl;
+        std::cout << "Please, write de option: [ADD] [SEARCH] [EXIT]" << std::endl;
         std::cin.clear();
         std::cin.sync();
         std::getline(std::cin, answer);
-        if (answer == "1")
+        if (answer == "ADD")
             insertNewMember(&honeyBook);
-        else if (answer == "2")
+        else if (answer == "SEARCH")
         {
             std::cout << CLEAR;
             showContacts(&honeyBook);
         }
-        else if (answer == "0")
+        else if (answer == "EXIT")
         {
             std::cout << "Good bye, have a nice day. :)" << std::endl;
             break;
         }
-        else if (answer != "0" || answer != "1" || answer != "2" || answer != "")
+        else if (answer != "EXIT" || answer != "ADD" || answer != "SEARCH" || answer != "")
             std::cout << "Please, try again. :(" << std::endl;
     }
 }

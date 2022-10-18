@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 20:20:30 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/04 19:34:59 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/13 04:20:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ public:
 
     Contact contact[8];
 };
+
+typedef struct  insertNames
+{
+    std::string fNameInsert;
+    std::string lNameInsert;
+    std::string nNameInsert;
+    std::string phoneNInsert;
+    std::string dSecretInsert;
+} insertName;
 
 // Functions to run the project
 

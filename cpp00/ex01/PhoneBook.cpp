@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:16:39 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/09/27 20:54:35 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:13:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 PhoneBook::PhoneBook ( void )
 {
+    std::cout << CLEAR;
     std::cout << "---------- Hello, welcome to the HoneyBook -------------" << std::endl;
     return ;
     

@@ -6,15 +6,13 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:31:38 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/03 23:07:33 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/11 20:16:37 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
 #include <cstring>
-
-//phonebook ---> uma função --> private name
 
 class Contact
 {
@@ -40,7 +38,6 @@ public:
     
     
 private:
-//fName, lName, nName, phoneN, dSecret;
     std::string _firstName, _lastName, _nickName, _phoneNumber,
     _darkestSecret;
 
