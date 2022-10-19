@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 23:02:59 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/18 18:40:14 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:41:24 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Zombie
 		std::string _name;
 
 	public:
-		Zombie(std::string zombieName);
+		Zombie( void );
 		~Zombie( void );
 
 		void	announce ( void );
+		void	setName ( std::string name );
 };
 
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
+Zombie*	zombieHorde( int n, std::string name );
 
 #endif
