@@ -1,7 +1,7 @@
 .PHONY = clean fclean re all
 
 NAME 	= violence
-CFLAGS 	= -std=c++98
+CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
 SRC		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 HEADER 	= HumanA.hpp HumanB.hpp Weapon.hpp
 CC		= c++

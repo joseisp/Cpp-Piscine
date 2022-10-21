@@ -1,7 +1,7 @@
 .PHONY = clean fclean re all
 
 NAME 	= brain
-CFLAGS 	= -std=c++98
+CFLAGS 	= -std=c++98  -Wall -Wextra -Werror
 SRC		= main.cpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)

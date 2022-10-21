@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   man.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 19:09:15 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/21 15:33:22 by jinacio-         ###   ########.fr       */
+/*   Created: 2022/10/19 22:15:38 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/10/20 19:48:44 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef MAN_HPP
+#define MAN_HPP
 
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include <string>
-
-class Weapon
-{
-	private:
-		std::string _type;
-	public:
-		Weapon ( std::string type );
-		~Weapon ( void );
-
-		const std::string	&getType ( void );
-		void setType (std::string newType);
-};
 
 #endif

@@ -1,9 +1,9 @@
 .PHONY = clean fclean re all
 
-NAME 	= zombie
-CFLAGS 	= -std=c++98  -Wall -Wextra -Werror
-SRC		= main.cpp zombieHorde.cpp Zombie.cpp
-HEADER 	= Zombie.hpp
+NAME 	= sed
+CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
+SRC		= main.cpp
+HEADER 	= man.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 
