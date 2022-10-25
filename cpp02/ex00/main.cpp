@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 19:02:27 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/22 16:16:44 by jinacio-         ###   ########.fr       */
+/*   Created: 2022/10/22 16:05:55 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/10/24 17:59:16 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "Fixed.hpp"
 
 #include <iostream>
-
-class Harl
+int main( void )
 {
-	private:
-		void	debug ( void );
-		void	info ( void );
-		void	warning ( void );
-		void	error ( void );
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-	public:
-		Harl( void );
-		~Harl( void );
-		void complain( std::string level );
+	c = b;
 
-};
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-#endif
+	return 0;
+}
