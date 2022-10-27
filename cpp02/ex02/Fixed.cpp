@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 16:14:32 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/25 16:24:13 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:48:25 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ const Fixed & Fixed::max(Fixed const &obj1, Fixed const &obj2)
 
 Fixed & Fixed::operator=(Fixed const &obj)
 {
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "Copy assignment operator called" << std::endl;
 
 	if (this != &obj)
 		this->setRawBits(obj.getRawBits());

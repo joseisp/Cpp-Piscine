@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 16:14:31 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/25 00:03:52 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:49:34 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define EX01_FIXED_HPP
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 class Fixed
 {
