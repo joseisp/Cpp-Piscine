@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:04:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 00:02:04 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:33:06 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,23 @@ ClapTrap::ClapTrap( void ): _name("ClapTrap")
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
-	std::cout << "First constructor called" << std::endl;
+	std::cout << "First constructor called!" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string const name ): _name(name)
 {
+	std::cout << "Constructor with parameter called!" << std::endl;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
+	std::cout << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & obj )
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
@@ -49,7 +51,7 @@ ClapTrap::ClapTrap( const ClapTrap & obj )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called. Good bye!!";
+	std::cout << "Destructor called. Good bye!!" << std::endl;
 	return;
 }
 
@@ -88,9 +90,10 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 
 void ClapTrap::attack( const std::string& target )
 {
+	std::cout << std::endl;
 	if (this->getEnergy() <= 0)
 	{
-		std::cout << getName() << "Doesn't have Energy Points" << std::endl;
+		std::cout << getName() << " Doesn't have Energy Points" << std::endl;
 		return;
 	}
 	if (attackFirst == 1)
@@ -105,8 +108,8 @@ void ClapTrap::attack( const std::string& target )
 		return ;
 	}
 
-	std::cout << "ClapTrap " << this->getName() << "Attacks deeply " << target
-	<< "causing " << this->getAttackD() << "points of damage. "
+	std::cout << "ClapTrap " << this->getName() << " Attacks deeply " << target
+	<< " causing " << this->getAttackD() << " points of damage. "
 	<< "Don't you have a heart?" << std::endl;
 
 	attackFirst++;
@@ -120,28 +123,44 @@ void ClapTrap::takeDamage( unsigned int amount )
 		std::cout << "to take damage you need to attack!!" << std::endl;
 		return ;
 	}
-	if (this->getHit() <= amount)
+	else if (this->getHit() < 1)
+	{
+		std::cout << "You definitely don't have a heart! "
+		<< this->getName() << " is already dead !" << std::endl;
+		std::cout << std::endl;
+		attackFirst--;
+		return ;
+	}
+	else if (this->getHit() <= amount)
 	{
 		this->_hitPoints = 0;
-		std::cout << this->getName() << "is dead!" << std::endl;
-		return;
-	}
-	if (this->getHit() > amount)
-	{
-		this->_hitPoints--;
-		std::cout << this->getName() << ": it's hurts!!!!!" << " Him take"
-		<< amount << " damage" << std::endl;
+		std::cout << this->getName() << " died! :(" << std::endl;
+		std::cout << std::endl;
 		attackFirst--;
 		return;
 	}
-
+	else if (this->getHit() > amount)
+	{
+		this->_hitPoints--;
+		std::cout << this->getName() << ": it's hurts!!!!!" << " Him took "
+		<< amount << " damage" << std::endl;
+		attackFirst--;
+		std::cout << std::endl;
+		return;
+	}
 }
 
 void ClapTrap::beRepaired( unsigned int amount )
 {
+	if (this->getHit() < 1)
+	{
+		std::cout << "You are dead!" << std::endl;
+		return ;
+	}
+
 	if (this->getEnergy() < 1)
 	{
-		std::cout << this->getName <<": MY GOODNESS!!!!"
+		std::cout << this->getName() <<": MY GOODNESS!!!!"
 		<< " You don't have Energy.";
 		return ;
 	}
@@ -175,6 +194,29 @@ unsigned int	ClapTrap::getEnergy( void ) const
 unsigned int	ClapTrap::getAttackD( void ) const
 {
 	return this->_attackDamage;
+}
+
+void	ClapTrap::setDamage ( unsigned int power)
+{
+	std::cout << this->getName() << " now has " << power << " of attack!";
+	this->_attackDamage = power;
+	std::cout << std::endl;
+	return ;
+}
+
+void	ClapTrap::setHP ( unsigned int hp)
+{
+	std::cout << this->getName() << " now has " << hp << " of hitPoints!";
+	this->_hitPoints = hp;
+	std::cout << std::endl;
+	return ;
+}
+void	ClapTrap::setEnergy ( unsigned int vitality)
+{
+	std::cout << this->getName() << " now has " << vitality << " of energy!";
+	this->_energyPoints = vitality;
+	std::cout << std::endl;
+	return ;
 }
 
 /* ************************************************************************** */

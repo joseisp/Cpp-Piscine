@@ -1,9 +1,9 @@
 .PHONY = clean fclean re all
 
-NAME 	= Fixed
+NAME 	= clap
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
-SRC		= Fixed.cpp main.cpp
-HEADER 	= Fixed.hpp
+SRC		= ClapTrap.cpp main.cpp
+HEADER 	= ClapTrap.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 

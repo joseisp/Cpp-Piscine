@@ -30,6 +30,10 @@ class ClapTrap
 		unsigned int	getEnergy( void )const;
 		unsigned int	getAttackD( void ) const;
 
+		void setDamage( unsigned int power );
+		void setHP( unsigned int hp );
+		void setEnergy( unsigned int vitality );
+
 };
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
