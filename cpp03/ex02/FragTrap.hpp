@@ -13,10 +13,9 @@ class FragTrap : public ClapTrap
 		FragTrap( FragTrap const & src );
 		~FragTrap( void );
 
-		FragTrap &		operator=( FragTrap const & rhs );
+		FragTrap &		operator=( FragTrap const & obj );
 
-	private:
-
+		void highFivesGuys(void);
 };
 
 std::ostream &			operator<<( std::ostream & o, FragTrap const & i );

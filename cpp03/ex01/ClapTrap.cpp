@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:04:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 23:43:51 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:19:01 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & obj )
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 {
-	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackD();
-	o << "Energy = " << i.getEnergy();
-	o << "Vitality = " << i.getHit();
-
+	o << "ClapTrap: Name = " << i.getName() << std::endl;
+	o << "ClapTrap: Attack Damage = " << i.getAttackD() << std::endl;
+	o << "ClapTrap: Energy = " << i.getEnergy() << std::endl;
+	o << "ClapTrap: Vitality = " << i.getHit() << std::endl;
+	o << "ClapTrap: Who is it = " << i.getWhoIsIt() << std::endl;
 	return o;
 }
 
@@ -162,7 +162,7 @@ void ClapTrap::beRepaired( unsigned int amount )
 		this->_energyPoints = this->_energyPoints + amount;
 		this->_energyPoints--;
 		std::cout << this->getWhoIsIt() << " You were healed: "
-				  << amount << "(sound of healed)";
+				  << amount << " (sound of healed)" << std::endl;
 	}
 }
 /*

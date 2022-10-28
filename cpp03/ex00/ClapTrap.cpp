@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:04:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 22:10:46 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:18:49 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & obj )
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 {
-	o << "Name = " << i.getName();
-	o << "Attack Damage = " << i.getAttackD();
-	o << "Value = " << i.getAttackD();
-	o << "Value = " << i.getAttackD();
+	o << "Name = " << i.getName() << std::endl;
+	o << "Attack Damage = " << i.getAttackD() << std::endl;
+	o << "Value = " << i.getAttackD() << std::endl;
+	o << "Value = " << i.getAttackD() << std::endl;
 
 	return o;
 }
@@ -168,7 +168,8 @@ void ClapTrap::beRepaired( unsigned int amount )
 	{
 		this->_energyPoints = this->_energyPoints + amount;
 		this->_energyPoints--;
-		std::cout << "You were healed: " << amount << "(sound of healed)";
+		std::cout << "You were healed: " << amount
+		          << " (sound of healed)" << std::endl;
 	}
 
 

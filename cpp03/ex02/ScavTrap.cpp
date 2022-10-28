@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:39:32 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 23:48:14 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:16:06 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & obj )
 		this->_name = obj.getName();
 		this->_hitPoints = obj.getHit();
 		this->_whoisit = obj.getAttackD();
-
 		this->_energyPoints = obj.getEnergy();
 		this->_attackDamage = obj.getAttackD();
 	}
@@ -80,11 +79,11 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & obj )
 
 std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 {
-	o << "ScavTrap: Name = " << i.getName();
-	o << "ScavTrap: Attack Damage = " << i.getAttackD();
-	o << "ScavTrap: Energy = " << i.getEnergy();
-	o << "ScavTrap: Vitality = " << i.getHit();
-	o << "ScavTrap: Who is it = " << i.getWhoIsIt();
+	o << "ScavTrap: Name = " << i.getName() << std::endl;
+	o << "ScavTrap: Attack Damage = " << i.getAttackD() << std::endl;
+	o << "ScavTrap: Energy = " << i.getEnergy() << std::endl;
+	o << "ScavTrap: Vitality = " << i.getHit() << std::endl;
+	o << "ScavTrap: Who is it = " << i.getWhoIsIt() << std::endl;
 	return o;
 }
 
