@@ -6,13 +6,11 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:04:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 22:10:46 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/10/27 23:43:51 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-unsigned int	attackFirst = 0;
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -20,6 +18,7 @@ unsigned int	attackFirst = 0;
 
 ClapTrap::ClapTrap( void ): _name("ClapTrap")
 {
+	this->_whoisit = "ClapTrap";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
@@ -30,10 +29,10 @@ ClapTrap::ClapTrap( void ): _name("ClapTrap")
 ClapTrap::ClapTrap( std::string const name ): _name(name)
 {
 	std::cout << "Constructor with parameter called!" << std::endl;
+	this->_whoisit = "ClapTrap";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
-	std::cout << std::endl;
 	return ;
 }
 
@@ -78,8 +77,8 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 {
 	o << "Name = " << i.getName();
 	o << "Attack Damage = " << i.getAttackD();
-	o << "Value = " << i.getAttackD();
-	o << "Value = " << i.getAttackD();
+	o << "Energy = " << i.getEnergy();
+	o << "Vitality = " << i.getHit();
 
 	return o;
 }
@@ -90,21 +89,16 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 
 void ClapTrap::attack( const std::string& target )
 {
-	std::cout << std::endl;
 	if (this->getEnergy() <= 0)
 	{
-		std::cout << getName() << " Doesn't have Energy Points" << std::endl;
+		std::cout << "ClapTrap " << this->getName()
+				  << " Doesn't have Energy Points" << std::endl;
 		return;
-	}
-	if (attackFirst == 1)
-	{
-		std::cout << "Breath, please! one hit at a time." << std::endl;
-		return ;
 	}
 	if (this->getHit() <= 0)
 	{
-		std::cout << "There are no zombies in here!"
-				  << getName() << " He's dead!" << std::endl;
+		std::cout << "ClapTrap "<< "There are no zombies in here!"
+				  << this->getName() << " He's dead!" << std::endl;
 		return ;
 	}
 
@@ -112,66 +106,64 @@ void ClapTrap::attack( const std::string& target )
 	<< " causing " << this->getAttackD() << " points of damage. "
 	<< "Don't you have a heart?" << std::endl;
 
-	attackFirst++;
 	this->_energyPoints--;
 }
 
 void ClapTrap::takeDamage( unsigned int amount )
 {
-	if (attackFirst <= 0)
+	if(amount < 0)
 	{
-		std::cout << "To take damage you need to attack!!" << std::endl;
+		std::cout << "Please, only positive numbers" << std::endl;
 		return ;
 	}
-	else if (this->getHit() < 1)
+	if (this->getHit() < 1)
 	{
-		std::cout << "You definitely don't have a heart! "
+		std::cout << this->getWhoIsIt() << " You definitely don't have a heart! "
 		<< this->getName() << " is already dead !" << std::endl;
-		std::cout << std::endl;
-		attackFirst--;
 		return ;
 	}
 	else if (this->getHit() <= amount)
 	{
 		this->_hitPoints = 0;
-		std::cout << this->getName() << " died! :(" << std::endl;
-		std::cout << std::endl;
-		attackFirst--;
+		std::cout << this->getWhoIsIt() << " " << this->getName() << " died! :("
+		<< std::endl;
 		return;
 	}
 	else if (this->getHit() > amount)
 	{
 		this->_hitPoints--;
-		std::cout << this->getName() << ": it's hurts!!!!!" << " Him took "
-		<< amount << " damage" << std::endl;
-		attackFirst--;
-		std::cout << std::endl;
+		std::cout << this->getWhoIsIt() << " " << this->getName()
+		<< ": it's hurts!!!!!" << " Him took " << amount << " damage"
+		<< std::endl;
 		return;
 	}
 }
 
 void ClapTrap::beRepaired( unsigned int amount )
 {
-	if (this->getHit() < 1)
+	if(amount < 0)
 	{
-		std::cout << "You are dead!" << std::endl;
+		std::cout << "Please, only positive numbers" << std::endl;
 		return ;
 	}
-
+	if (this->getHit() < 1)
+	{
+		std::cout << this->getWhoIsIt() << " You are dead!" << std::endl;
+		return ;
+	}
 	if (this->getEnergy() < 1)
 	{
-		std::cout << this->getName() <<": MY GOODNESS!!!!"
-		<< " You don't have Energy." << std::endl;
+		std::cout << this->getWhoIsIt() << " " << this->getName()
+		<< ": MY GOODNESS!!!!" << " You don't have Energy." << std::endl;
 		return ;
 	}
 	else
 	{
 		this->_energyPoints = this->_energyPoints + amount;
 		this->_energyPoints--;
-		std::cout << "You were healed: " << amount << "(sound of healed)";
+		std::cout << this->getWhoIsIt() << " You were healed: "
+				  << amount << "(sound of healed)";
 	}
-
-
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
@@ -179,6 +171,11 @@ void ClapTrap::beRepaired( unsigned int amount )
 std::string ClapTrap::getName( void ) const
 {
 	return this->_name;
+}
+
+std::string ClapTrap::getWhoIsIt( void ) const
+{
+	return this->_whoisit;
 }
 
 unsigned int	ClapTrap::getHit( void ) const
@@ -198,24 +195,40 @@ unsigned int	ClapTrap::getAttackD( void ) const
 
 void	ClapTrap::setDamage ( unsigned int power)
 {
-	std::cout << this->getName() << " now has " << power << " of attack!";
+	if(power < 0)
+	{
+		std::cout << "Please, only positive numbers" << std::endl;
+		return ;
+	}
+	std::cout << this->getWhoIsIt() << " " << this->getName() << " now has "
+			  << power << " of attack!" << std::endl;
 	this->_attackDamage = power;
-	std::cout << std::endl;
 	return ;
 }
 
 void	ClapTrap::setHP ( unsigned int hp)
 {
-	std::cout << this->getName() << " now has " << hp << " of hitPoints!";
+	if (hp < 0)
+	{
+		std::cout << "Please, only positive numbers"<< std::endl;
+		return ;
+	}
+	std::cout << this->getWhoIsIt() << " " << this->getName() << " now has "
+			  << hp << " of hitPoints!";
 	this->_hitPoints = hp;
-	std::cout << std::endl;
 	return ;
 }
+
 void	ClapTrap::setEnergy ( unsigned int vitality)
 {
-	std::cout << this->getName() << " now has " << vitality << " of energy!";
+	if(vitality < 0)
+	{
+		std::cout << "Please, only positive numbers" << std::endl;
+		return ;
+	}
+	std::cout << this->getWhoIsIt() << " "<< this->getName() << " now has "
+			  << vitality << " of energy!";
 	this->_energyPoints = vitality;
-	std::cout << std::endl;
 	return ;
 }
 
