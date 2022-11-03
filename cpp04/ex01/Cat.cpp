@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 23:27:14 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:15 by jinacio-         ###   ########.fr       */
+/*   Created: 2022/10/31 23:27:23 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/01 13:38:37 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "Animal.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal( void )
+Cat::Cat( void )
 {
-	this->_type = "Llama";
-	std::cout << this->getType() <<": Constructor Called!" << std::endl;
+	this->_type = "Cat";
+	std::cout << "Cat: Constructor called!" << std::endl;
+	this->_brain = new Brain();
 	return ;
 }
 
-Animal::Animal (std::string type)
+Cat::Cat( const Cat & src )
 {
-	this->_type = type;
-	std::cout << this->getType() << ": Constructor with parameter called!"
-			  << std::endl;
-}
-
-Animal::Animal( Animal & src )
-{
-	std::cout << this->getType() << ": Copy constructor called!" << std::endl;
+	std::cout << "Cat: Copy constructor called!" << std::endl;
 	*this = src;
 	return ;
 }
@@ -43,9 +36,10 @@ Animal::Animal( Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Cat::~Cat( void )
 {
-	std::cout << "Llama: Destructor called!" << std::endl;
+	std::cout << "Cat: Destructor called!" << std::endl;
+	delete this->_brain;
 	return ;
 }
 
@@ -54,16 +48,16 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_type = rhs.getType();
+		this->_type = this->getType();
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, Cat const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -74,25 +68,16 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const
+void	Cat::makeSound( void ) const
 {
-	std::cout << "ROW ROW!! (Does that sound like the animal?)" << std::endl;
+	std::cout << "Miauuuuu!!!" << std::endl;
 	return ;
 }
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Animal::setType ( std::string type)
-{
-	this->_type = type;
-	return ;
-}
-
-std::string const Animal::getType( void ) const
-{
-	return this->_type;
-}
 
 /* ************************************************************************** */

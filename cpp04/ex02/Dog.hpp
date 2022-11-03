@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 23:28:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:28:05 by jinacio-         ###   ########.fr       */
+/*   Created: 2022/10/31 23:27:41 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/01 15:34:24 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef EX01_DOG_HPP
+# define EX01_DOG_HPP
 
 # include <iostream>
 # include <string>
-# include "WrongAnimal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class WrongCat : public WrongAnimal
+class Dog : public AAnimal
 {
+	private:
+		Brain* _brain;
 
 	public:
 
-		WrongCat( void );
-		WrongCat( WrongCat const & src );
-		virtual ~WrongCat( void );
+		Dog ( void );
+		Dog ( Dog const & src );
+		virtual ~Dog ( void );
 
-		WrongCat &		operator=( WrongCat const & rhs );
+		virtual void makeSound ( void ) const;
 
-		void	makeSound ( void ) const;
+		Dog &		operator=( Dog const & obj );
+
 };
 
-std::ostream &			operator<<( std::ostream & o, WrongCat const & i );
+//std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
-#endif /* ******************************************************** WRONGCAT_H */
+#endif /* ************************************************************* DOG_H */

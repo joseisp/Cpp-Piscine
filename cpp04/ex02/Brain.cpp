@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 23:27:14 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:15 by jinacio-         ###   ########.fr       */
+/*   Created: 2022/11/01 00:01:55 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/01 15:16:12 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "Animal.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal( void )
+Brain::Brain( void )
 {
-	this->_type = "Llama";
-	std::cout << this->getType() <<": Constructor Called!" << std::endl;
+	std::cout << "Constructor called by ClassBrain" << std::endl;
 	return ;
 }
 
-Animal::Animal (std::string type)
+Brain::Brain( const Brain & src )
 {
-	this->_type = type;
-	std::cout << this->getType() << ": Constructor with parameter called!"
-			  << std::endl;
-}
-
-Animal::Animal( Animal & src )
-{
-	std::cout << this->getType() << ": Copy constructor called!" << std::endl;
+	std::cout << "Constructor copy called by ClassBrain" << std::endl;
 	*this = src;
 	return ;
 }
@@ -43,9 +34,9 @@ Animal::Animal( Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Brain::~Brain( void )
 {
-	std::cout << "Llama: Destructor called!" << std::endl;
+	std::cout << "Destructor called by ClassBrain" << std::endl;
 	return ;
 }
 
@@ -54,18 +45,27 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_type = rhs.getType();
+		int i = 0;
+		while ( i < 100)
+		{
+			this->_ideas[i] = rhs.getIdeas(i);
+			i++;
+		}
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, Brain const & i )
 {
-	o << "Type = " << i.getType();
+	int n1;
+	while (n1 < 100)
+	{
+		o << i.getIdeas(n1) << std::endl;
+	}
 	return o;
 }
 
@@ -74,25 +74,28 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const
-{
-	std::cout << "ROW ROW!! (Does that sound like the animal?)" << std::endl;
-	return ;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Animal::setType ( std::string type)
+void Brain::setIdeas(std::string idea)
 {
-	this->_type = type;
-	return ;
+	int len = idea.length();
+	if (len >100)
+	{
+		std::cout << "Error: there are more than 100 characters" << std::endl;
+		return ;
+	}
+	int i = 0;
+	while (i++ < len)
+	{
+		this->_ideas[i] = idea[i];
+	}
 }
-
-std::string const Animal::getType( void ) const
+std::string const Brain::getIdeas ( int pos ) const
 {
-	return this->_type;
+	return this->_ideas[pos];
 }
 
 /* ************************************************************************** */

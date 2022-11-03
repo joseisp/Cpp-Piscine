@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:27:14 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:15 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:25:40 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal( void )
+AAnimal::AAnimal( void )
 {
-	this->_type = "Llama";
-	std::cout << this->getType() <<": Constructor Called!" << std::endl;
+	this->_type = "AAnimal";
+	std::cout << this->getType() <<": Constructor Called by Class AAnimal!"
+			  << std::endl;
 	return ;
 }
 
-Animal::Animal (std::string type)
+AAnimal::AAnimal (std::string type)
 {
 	this->_type = type;
-	std::cout << this->getType() << ": Constructor with parameter called!"
+	std::cout << this->getType()
+			  << ": Constructor with parameter called by Class AAnimal!"
 			  << std::endl;
 }
 
-Animal::Animal( Animal & src )
+AAnimal::AAnimal( AAnimal & src )
 {
-	std::cout << this->getType() << ": Copy constructor called!" << std::endl;
+	std::cout << this->getType() << ": Copy constructor called by Class AAnimal!"
+			  << std::endl;
 	*this = src;
 	return ;
 }
@@ -43,9 +46,9 @@ Animal::Animal( Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Llama: Destructor called!" << std::endl;
+	std::cout << "AAnimal: Destructor called!" << std::endl;
 	return ;
 }
 
@@ -54,7 +57,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+AAnimal &				AAnimal::operator=( AAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -63,7 +66,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -74,9 +77,9 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const
+void	AAnimal::makeSound( void ) const
 {
-	std::cout << "ROW ROW!! (Does that sound like the animal?)" << std::endl;
+	std::cout << "ROW ROW!! (Does that sound like the AAnimal?)" << std::endl;
 	return ;
 }
 
@@ -84,13 +87,13 @@ void	Animal::makeSound( void ) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Animal::setType ( std::string type)
+void AAnimal::setType ( std::string type)
 {
 	this->_type = type;
 	return ;
 }
 
-std::string const Animal::getType( void ) const
+std::string const AAnimal::getType( void ) const
 {
 	return this->_type;
 }

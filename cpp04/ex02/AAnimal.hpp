@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:27:18 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:21 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:33:31 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef EX02_AANIMAL_HPP
+# define EX02_AANIMAL_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string _type;
 
 	public:
 
-		Animal ( void );
-		Animal (std::string type);
-		Animal ( Animal & src );
-		virtual ~Animal ( void );
+		AAnimal ( void );
+		AAnimal (std::string type);
+		AAnimal ( AAnimal & src );
+		virtual ~AAnimal ( void );
 
-		Animal &		operator=( Animal const & obj );
+		AAnimal &		operator=( AAnimal const & obj );
 
 		void setType ( std::string type);
 		std::string const getType( void ) const;
-		virtual void	makeSound( void ) const;
+		virtual void	makeSound( void ) const = 0;
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i );
 
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ********************************************************** AAnimal_H */

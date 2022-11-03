@@ -6,12 +6,12 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:27:18 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:21 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 00:02:20 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef EX01_ANIMAL_HPP
+# define EX01_ANIMAL_HPP
 
 # include <iostream>
 # include <string>

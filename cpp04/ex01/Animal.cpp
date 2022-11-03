@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:27:14 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:15 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:03:15 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,24 @@
 
 Animal::Animal( void )
 {
-	this->_type = "Llama";
-	std::cout << this->getType() <<": Constructor Called!" << std::endl;
+	this->_type = "Animal";
+	std::cout << this->getType() <<": Constructor Called by Class Animal!"
+			  << std::endl;
 	return ;
 }
 
 Animal::Animal (std::string type)
 {
 	this->_type = type;
-	std::cout << this->getType() << ": Constructor with parameter called!"
+	std::cout << this->getType()
+			  << ": Constructor with parameter called by Class Animal!"
 			  << std::endl;
 }
 
 Animal::Animal( Animal & src )
 {
-	std::cout << this->getType() << ": Copy constructor called!" << std::endl;
+	std::cout << this->getType() << ": Copy constructor called by Class Animal!"
+			  << std::endl;
 	*this = src;
 	return ;
 }
@@ -45,7 +48,7 @@ Animal::Animal( Animal & src )
 
 Animal::~Animal()
 {
-	std::cout << "Llama: Destructor called!" << std::endl;
+	std::cout << "Animal: Destructor called!" << std::endl;
 	return ;
 }
 
