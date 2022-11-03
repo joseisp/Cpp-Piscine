@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:18:02 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/18 18:30:50 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:23:27 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ int main()
 	std::cout << "String - Value: " << phraZ << std::endl;
 	std::cout << "StringPTR - Value " << *stringPTR << std::endl;
 	std:: cout << "stringREF - Value: " << stringREF << std::endl;
-	
 }

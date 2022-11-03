@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:02:25 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/21 20:49:34 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 20:25:09 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void Harl::complain( std::string level )
 			(this->*furious[3])();
 			break;
 		default:
-			std::cout << "Sorry, verify the input!" << std::endl;
+			std::cout << "Verify the input![DEBUG] [INFO] [WARNING] [ERROR]"
+					  << std::endl;
 	}
 
 }

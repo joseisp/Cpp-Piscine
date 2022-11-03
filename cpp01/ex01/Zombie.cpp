@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 23:03:04 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/18 17:12:37 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:17:50 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie::Zombie ( void )
 }
 Zombie::~Zombie ( void )
 {
-	std::cout << this->_name << " was destroying" << std::endl;
+	std::cout << this->_name << " was destroyed" << std::endl;
 }
 
 void	Zombie::announce ( void )

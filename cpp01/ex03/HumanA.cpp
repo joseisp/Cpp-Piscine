@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:24:00 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/19 19:26:03 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:23:59 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ HumanA::~HumanA ( void )
 
 void HumanA::attack( void )
 {
-	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+	std::cout << this->_name << " attacks with their "
+			  << this->_weapon.getType() << std::endl;
 	return ;
 }
