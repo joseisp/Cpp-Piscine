@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:35 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/03 20:15:39 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/03 23:09:53 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 int main()
 {
 	Bureaucrat *JanioQuadros;
+	Form *form;
+
+	try
+	{
+		JanioQuadros = new Bureaucrat("Kilua", 15);
+		form = new Form ("F1", 10, 10);
+		JanioQuadros->signForm(*form);
+		std::cout << *form;
+		delete form;
+	}
+	catch (std::exception& er)
+	{
+		std::cerr << er.what() << std::endl;
+	}
 
 	try
 	{
@@ -22,9 +36,9 @@ int main()
 		std::cout << *JanioQuadros;
 		delete JanioQuadros;
 	}
-	catch (std::exception& e)
+	catch (std::exception& er)
 	{
-		std::cout << e.what() <<std::endl;
+		std::cerr << er.what() <<std::endl;
 	}
 
 	Bureaucrat *IveteSangalo;
@@ -35,9 +49,9 @@ int main()
 		std::cout << *IveteSangalo;
 		delete IveteSangalo;
 	}
-	catch (std::exception& e)
+	catch (std::exception& er)
 	{
-		std::cout << e.what() <<std::endl;
+		std::cerr << er.what() <<std::endl;
 	}
 
 	Bureaucrat *EricClapton;
@@ -48,9 +62,9 @@ int main()
 		std::cout << *EricClapton;
 		delete EricClapton;
 	}
-	catch (std::exception& e)
+	catch (std::exception& er)
 	{
-		std::cout << e.what() <<std::endl;
+		std::cerr << er.what() <<std::endl;
 	}
 	return 0;
 }

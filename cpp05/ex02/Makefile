@@ -2,8 +2,10 @@
 
 NAME 	= bureaucrat
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
-SRC		= Bureaucrat.cpp main.cpp Form.cpp
-HEADER 	= Bureaucrat.hpp Form.hpp
+SRC		+= Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp
+SRC		+= RobotomyRequestForm.cpp ShrubberryCreationForm.cpp
+HEADER 	+= Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp
+HEADER 	+= RobotomyRequestForm.hpp ShrubberryCreationForm.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 

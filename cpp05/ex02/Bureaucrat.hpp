@@ -6,12 +6,12 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:37:00 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/03 22:21:19 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:58:30 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_BUREAUCRAT_HPP
-#define EX01_BUREAUCRAT_HPP
+#ifndef EX02_BUREAUCRAT_HPP
+#define EX02_BUREAUCRAT_HPP
 #include <iostream>
 #include <exception>
 
@@ -37,11 +37,14 @@ class Bureaucrat
 		const std::string getName( void ) const;
 		int		getGrade( void ) const;
 		void	signForm(Form & obj);
+		void executeForm(Form const & form) const;
 
 		void	incrementGrade( void );
 		void	decrementGrade( void );
 		void	incrementALot (int number);
 		void	decrementALot (int number);
+
+
 
 		class GradeTooHighException : public std::exception
 		{
