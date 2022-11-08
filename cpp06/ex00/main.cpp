@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:16:29 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/07 01:17:52 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/08 00:08:12 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,28 @@
 #include <string>
 #include <cctype>
 
+#include "Converting.hpp"
+
+bool	littleRules(std::string argv)
+{
+	if (argv == "nanf" || argv == "-inff" || argv == "+inff")
+		return true;
+	if (argv == "-inf" || argv == "+inf" || argv == "nan")
+		return true;
+
+	return false;
+}
+
 int	isItChar(std::string argv)
 {
 	int i = 0;
+	int j = 0;
+	std::stringstream aux(argv);
 
+	aux >> j;
 	while (argv[i])
 	{
-		if (isdigit(argv[i]) != 0 || argv.length() != 1)
+		if (isdigit(argv[i]) != 0 || argv.length() != 1 || j > 127)
 			return 0;
 		i++;
 	}
@@ -33,11 +48,19 @@ int	isItChar(std::string argv)
 int	isItInt(std::string argv)
 {
 	int i = 0;
+	std::stringstream aux(argv);
+	double secAux;
 
+	aux >> secAux;
+	if (secAux < -2147483648 || secAux > 2147483647)
+		return 11;
 	while (argv[i])
 	{
 		if (!(argv[i] >= 48 && argv[i] <= 57))
-			return 0;
+		{
+			if (argv[i] != 45)
+				return 0;
+		}
 		i++;
 	}
 	return 1;
@@ -49,6 +72,8 @@ int	isItFloat(std::string argv)
 	int point = 0;
 	int f = 0;
 
+	if (littleRules(argv))
+		return 9;
 	while (argv[i] != '\0')
 	{
 		if (isdigit(argv[i]) == 0 && argv[i] != 46 && argv[i] != 'f' )
@@ -74,6 +99,8 @@ int	isItDouble(std::string argv)
 	int i = 0;
 	int point = 0;
 
+	if (littleRules(argv))
+		return 9;
 	while (argv[i])
 	{
 		if (isdigit(argv[i]) == 0 && argv[i] != 46)
@@ -88,19 +115,9 @@ int	isItDouble(std::string argv)
 		return 0;
 }
 
-void	convertToInt(std::string argv)
-{
-	int i = std::stoi(argv);
-
-	if (isprint(i))
-		std::cout << i << std::endl;
-	else
-		std::cout << "it's not printable" << std::endl;
-	std::cout << "Entrou cá!" << std::endl;
-}
-
 int main(int argc, char *argv[])
 {
+	Converting convert;
 	int choose = 0;
 	if ( argv[1] )
 	{
@@ -113,10 +130,36 @@ int main(int argc, char *argv[])
 			choose = isItDouble (argv[1]);
 	}
 
-	// switch(choose)
-	// {
-	// 	case 1:
-	// 		convertToInt(argv[1]);
-	// }
-	std::cout << choose << std::endl;
+	switch(choose)
+	{
+		case 1:
+			convert.setToInt(argv[1]);
+			break;
+		case 3:
+			convert.setToDouble(argv[1]);
+			break;
+		case 5:
+			convert.setToFloat(argv[1]);
+			break;
+		case 7:
+			convert.setToChar(argv[1]);
+			break;
+		case 9:
+		{
+			convert.printRules(argv[1]);
+			choose = 0;
+			break;
+		}
+		case 11:
+		{
+			convert.printMaxMin(argv[1]);
+			choose = 0;
+			break;
+		}
+		default:
+			choose = 999;
+			convert.printImpossible();
+	}
+	if (choose != 0)
+		convert.printInTheRow();
 }

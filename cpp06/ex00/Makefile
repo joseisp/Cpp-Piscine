@@ -2,8 +2,8 @@
 
 NAME 	= convert
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
-SRC		= main.cpp
-HEADER 	=
+SRC		= main.cpp Converting.cpp
+HEADER 	= Converting.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 
