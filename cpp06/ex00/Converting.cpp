@@ -11,6 +11,7 @@ Converting::Converting( void )
 
 Converting::Converting( const Converting & src )
 {
+	*this = src;
 	return ;
 }
 
@@ -31,52 +32,37 @@ Converting::~Converting( void )
 
 Converting &				Converting::operator=( Converting const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->_char = rhs.getChar();
+		this->_double = rhs.getDouble();
+		this->_float = rhs.getFloat();
+		this->_integer = rhs.getInt();
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Converting const & i )
-{
-	// o << "Value = " << i.getValue();
-	// return o;
-	return o;
-}
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-// getters
-
-// std::string Converting::getAux( void )
-// {
-// 	return this->_aux;
-// }
-float Converting::getFloat ( void )
+//getters
+float Converting::getFloat ( void ) const
 {
 	return this->_float;
 }
 
-int Converting::getInt ( void )
+int Converting::getInt ( void ) const
 {
 	return this->_integer;
 }
 
-double Converting::getDouble ( void )
+double Converting::getDouble ( void ) const
 {
 	return this->_double;
 }
 
-char Converting::getChar( void )
+char Converting::getChar( void ) const
 {
 	return this->_char;
 }
@@ -210,11 +196,5 @@ void Converting::printMaxMin( std::string str )
 	std::cout << "double: "<< this->_double << std::endl;
 
 }
-//char int float double
-
-// std::cout << "Float: " << this->_float << "\n";
-// std::cout << "Integer: " << this->_integer << "\n";
-// std::cout << "Double: "  << this->_double << "\n";
-// std::cout << "Char: " << this->_char << "\n";
 
 /* ************************************************************************** */
