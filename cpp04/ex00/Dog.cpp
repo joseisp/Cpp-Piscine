@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 23:27:37 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/31 23:27:38 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:38:22 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Dog const & i )
 {
-	o << "Name = " << i.getType();
+	o << "Type = " << i.getType();
 	return o;
 }
 

@@ -1,6 +1,6 @@
 .PHONY = clean fclean re all
 
-NAME 	= clap
+NAME 	= frag
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
 SRC		= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 HEADER 	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp

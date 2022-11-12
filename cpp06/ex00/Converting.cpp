@@ -34,7 +34,7 @@ Converting &				Converting::operator=( Converting const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_char = rhs.getChar();
+		_char = rhs.getChar();
 		this->_double = rhs.getDouble();
 		this->_float = rhs.getFloat();
 		this->_integer = rhs.getInt();

@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:35 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/04 22:22:30 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:54:10 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,15 @@ int main()
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	Intern test = Intern();
+	Intern creat = Intern();
 
-	Form* testao = test.makeForm("PRESIDENTIAL", "Test");
+	Form* creation = creat.makeForm("PRESIDENTIAL", "");
+	b1->signForm(*creation);
+	std::cout << *creation << std::endl;
 
-
-	std::cout << "DEU BOAAAAAAA" << std::endl;
-	b2->signForm(*testao);
-	std::cout << "DEU BOAAAAAAA" << std::endl;
-
-	// b2->signForm(*form);
-	// b2->executeForm(*form);
+	b2->signForm(*creation);
+	b2->signForm(*form);
+	b2->executeForm(*form);
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -55,4 +53,5 @@ int main()
 	delete b1;
 	delete b2;
 	delete b3;
+	delete creation;
 }

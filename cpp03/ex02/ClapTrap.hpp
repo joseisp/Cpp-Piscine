@@ -1,5 +1,17 @@
-#ifndef EX01_CLAPTRAP_HPP
-# define EX01_CLAPTRAP_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/11 12:27:45 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/11 12:27:47 by jinacio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef EX02_CLAPTRAP_HPP
+# define EX02_CLAPTRAP_HPP
 
 # include <iostream>
 # include <string>

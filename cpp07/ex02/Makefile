@@ -1,9 +1,9 @@
 .PHONY = clean fclean re all
 
-NAME 	= brain
+NAME 	= convert
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
-SRC		= Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
-HEADER 	= Animal.hpp Cat.hpp Dog.hpp Brain.hpp
+SRC		= main.cpp
+HEADER 	= iter.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 

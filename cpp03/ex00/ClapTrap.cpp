@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:04:03 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/28 15:18:49 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:21:37 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 {
 	o << "Name = " << i.getName() << std::endl;
 	o << "Attack Damage = " << i.getAttackD() << std::endl;
-	o << "Value = " << i.getAttackD() << std::endl;
-	o << "Value = " << i.getAttackD() << std::endl;
+	o << "Energy Points = " << i.getEnergy() << std::endl;
+	o << "Hit Points(HP) = " << i.getHit() << std::endl;
 
 	return o;
 }
@@ -212,6 +212,7 @@ void	ClapTrap::setHP ( unsigned int hp)
 	std::cout << std::endl;
 	return ;
 }
+
 void	ClapTrap::setEnergy ( unsigned int vitality)
 {
 	std::cout << this->getName() << " now has " << vitality << " of energy!";

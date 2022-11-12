@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 09:24:47 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/12 09:24:49 by jinacio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
@@ -13,15 +25,12 @@ class Intern
 	public:
 
 		Intern( void );
-		Intern ( void );
 		Intern( Intern const & src );
 		~Intern( void );
 
 		Form* makeForm(std::string nForm, std::string nTarget);
 
 		Intern &		operator=( Intern const & rhs );
-
-	private:
 
 };
 

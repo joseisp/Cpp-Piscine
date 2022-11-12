@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 20:54:12 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/10/27 16:25:00 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:22:34 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ int main()
 	jooj.attack(erigui.getName());
 	erigui.takeDamage(jooj.getAttackD());
 
+	jooj.attack(erigui.getName());
 	jooj.setEnergy(10);
+
 	jooj.attack(erigui.getName());
 	erigui.takeDamage(jooj.getAttackD());
+	erigui.beRepaired(10);
 
 	std::cout << erigui.getHit() << std::endl;
 
+	return 0;
 }

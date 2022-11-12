@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 09:26:22 by jinacio-          #+#    #+#             */
+/*   Updated: 2022/11/12 09:26:28 by jinacio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
 # include <string>
-//# include "Bureaucrat.hpp"
 # include "Form.hpp"
 
 class PresidentialPardonForm : public Form
