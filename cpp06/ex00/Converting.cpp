@@ -149,7 +149,7 @@ std::string Converting::prepareToPrint(std::string str, int n1)
 void Converting::printInTheRow( void )
 {
 	int i = 0;
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(1);
 	if (isprint(this->_char))
 		std::cout << "char: " << "'" << this->_char << "'" <<std::endl;
 	else

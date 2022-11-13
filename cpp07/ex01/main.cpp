@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:45:27 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/10 13:49:12 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:57:40 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main( void )
 
 	std::string ar2[5] = {"Neide ", "Jorge ", "Luzia ", "Corn ", "Cigano "};
 
-	std::cout << "Before Iter: " << std::endl << std::endl << std::endl;
+	std::cout << "Before Iter: " << std::endl << std::endl;
 	for (int j = 0; j < 5; j++)
 	{
 		std::cout << ar2[j] << std::endl;;

@@ -3,7 +3,7 @@
 NAME 	= convert
 CFLAGS 	= -std=c++98 -Wall -Wextra -Werror
 SRC		= main.cpp
-HEADER 	= iter.hpp
+HEADER 	= Array.hpp
 CC		= c++
 OBJ		= $(SRC:.cpp=.o)
 
