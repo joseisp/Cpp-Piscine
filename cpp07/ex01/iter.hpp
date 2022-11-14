@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:18:14 by jinacio-          #+#    #+#             */
-/*   Updated: 2022/11/10 13:26:32 by jinacio-         ###   ########.fr       */
+/*   Updated: 2022/11/13 18:55:34 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 
 template <typename T>
-void	iter(T* array, size_t len, void (*ft)(T&))
+void	iter(T* array, size_t len, void (*ft)(const T&))
 {
 	int i = 0;
 	while(i < len)
