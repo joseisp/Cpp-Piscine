@@ -22,7 +22,7 @@ std::string	deleteSpace(std::string src, int frontEnd)
 	std::string ret;
 	std::string aux;
 
-	if(frontEnd == 1) // end space
+	if(frontEnd == 1) // end space (Verify if there are spaces).
 	{
 		while(src[i] != ' ')
 		{
@@ -31,7 +31,7 @@ std::string	deleteSpace(std::string src, int frontEnd)
 			i++;
 		}
 	}
-	if (frontEnd == 2) // front space
+	if (frontEnd == 2) // front space (Verify if there are spaces).
 	{
 		while (src[j] != '\0')
 		{
@@ -41,7 +41,6 @@ std::string	deleteSpace(std::string src, int frontEnd)
 		}
 	}
 
-	std::cout << ret << std::endl;
 	return ret;
 }
 
@@ -115,8 +114,31 @@ void	printing(std::map<std::string,std::string> & data)
 void	displaying(std::string pairs, std::string odd,
 		std::map<std::string,std::string> & data)
 {
-	//std::cout << pairs << "/" << odd << std::endl;
-	//std::cout << data[pairs] << std::endl;
+	std::cout << pairs << "|" << odd << "|" << std::endl;
+}
+
+int		subSecurity(std::string securityTest)
+{
+	int ret = 0;
+	int i = 0;
+	int j = 0;
+
+	while (securityTest[i] !=  '\0')
+	{
+		j = i;
+		if (securityTest[i] == '|')
+		{
+			while (securityTest[j] != '\0')
+			{
+				if ((j - i) > 1 || (securityTest[j]>32 && securityTest[j] <= 126))
+					return 10;
+				j++;
+			}
+			return 0;
+		}
+		i++;
+	}
+	return 0;
 }
 
 void displayCount(std::ifstream & excelBase,
@@ -125,18 +147,25 @@ void displayCount(std::ifstream & excelBase,
 	std::string ifs;
 	std::string pairs;
 	std::string odd;
-
+	int numberSecurity = 0;
 	while(!excelBase.eof())
 	{
 		getline(excelBase, ifs);
 		std::stringstream test(ifs);
+		std::stringstream securityTest(ifs);
 		int count = 0;
 		std::string sub;
-		for (int i = 4; i < 6; i++)
+		std::string aux;
+
+		getline(securityTest, aux);
+		numberSecurity = subSecurity(aux);
+		for (int i = 4; i < 6 && numberSecurity == 10; i++)
 		{
 			getline(test, sub, '|');
+			//std::cout << sub << std::endl;
 			if (i % 2 == 0)
 			{
+
 				pairs = deleteSpace(sub, 1);
 				count += 1;
 			}
@@ -146,8 +175,11 @@ void displayCount(std::ifstream & excelBase,
 				count += 1;
 			}
 		}
-		return ;
-		displaying(pairs, odd, data);
+		//return ;
+		if (numberSecurity == 0)
+			std::cout << "Error..." << std::endl;
+		else
+			displaying(pairs, odd, data);
 	}
 }
 
