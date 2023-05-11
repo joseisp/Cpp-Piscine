@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:09:24 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/05/08 22:07:42 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:31:58 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <iomanip>
 #include <string.h>
 #include <string>
+#include <ctime>
+#include <sstream>
+#include <stdio.h>
+#include <stdlib.h>
 
 std::string	deleteSpace(std::string src, int frontEnd)
 {
@@ -114,7 +118,41 @@ void	printing(std::map<std::string,std::string> & data)
 void	displaying(std::string pairs, std::string odd,
 		std::map<std::string,std::string> & data)
 {
-	std::cout << pairs << "|" << odd << "|" << std::endl;
+	std::ostringstream date1;
+	std::string aux;
+	date1 << pairs;
+	int n1;
+	struct tm tm;
+	std::string aux3 = "0";
+	strptime(date1.str().c_str(), "%Y-%m-%d", &tm);
+
+	char date2[10];
+	char date3[10];
+	char date4[10];
+	strftime(date2, sizeof(date2), "%d", &tm);
+	strftime(date3, sizeof(date3), "%m-", &tm);
+	strftime(date4, sizeof(date4), "%Y-", &tm);
+
+	n1 = atoi(date2);
+	n1++;
+	char aux15 = n1;
+
+	//const int i = 3;
+	std::ostringstream s;
+	s << n1;
+	const std::string i_as_string(s.str());
+	std::string auxFinal(s.str());
+
+	std::cout << auxFinal << std::endl;
+	aux3.append(auxFinal);
+	std::cout << aux3 << std::endl;
+	aux.append(date4);
+	aux.append(date3);
+	aux.append(aux3);
+
+	std::cout << data[aux] << std::endl;
+	//std::cout << date1.str() << " -> " << date2 << std::endl;
+	exit(1);
 }
 
 int		subSecurity(std::string securityTest)
@@ -136,6 +174,8 @@ int		subSecurity(std::string securityTest)
 			}
 			return 0;
 		}
+		else if (!(securityTest[i] >= '0' && securityTest[i] <= '9') && securityTest[i] != '-' && securityTest[i] != '|' && securityTest[i] != ' ')
+			break;
 		i++;
 	}
 	return 0;
