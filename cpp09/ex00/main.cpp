@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:09:24 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/05/10 21:31:58 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/05/21 18:54:44 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,7 @@ void	printing(std::map<std::string,std::string> & data)
 	}
 }
 
-void	displaying(std::string pairs, std::string odd,
-		std::map<std::string,std::string> & data)
+std::string	ifNoExist(std::string pairs)
 {
 	std::ostringstream date1;
 	std::string aux;
@@ -134,25 +133,59 @@ void	displaying(std::string pairs, std::string odd,
 	strftime(date4, sizeof(date4), "%Y-", &tm);
 
 	n1 = atoi(date2);
-	n1++;
-	char aux15 = n1;
+	n1--;
 
-	//const int i = 3;
 	std::ostringstream s;
 	s << n1;
 	const std::string i_as_string(s.str());
 	std::string auxFinal(s.str());
 
-	std::cout << auxFinal << std::endl;
-	aux3.append(auxFinal);
-	std::cout << aux3 << std::endl;
+	if (n1 < 9)
+		aux3.append(auxFinal);
+
 	aux.append(date4);
 	aux.append(date3);
-	aux.append(aux3);
+	if (n1 <= 9)
+		aux.append(aux3);
+	else
+		aux.append(auxFinal);
 
-	std::cout << data[aux] << std::endl;
-	//std::cout << date1.str() << " -> " << date2 << std::endl;
-	exit(1);
+	return aux;
+}
+
+void	displaying(std::string pairs, std::string odd,
+		std::map<std::string,std::string> & data)
+{
+	std::string aux;
+	int i = 0;
+	if (data[pairs] == "")
+	{
+		aux = ifNoExist(pairs);
+		while (data[aux] == "" && i < 30)
+		{
+			aux = ifNoExist(aux);
+			i++;
+		}
+		float n2 = std::stof(odd);
+		float n3 =  std::stof(data[aux]);
+ 		if (std::stol(odd) > 2147483647 || std::stol(data[aux]) > 2147483647)
+		{
+			std::cout << "Error: It's a big number..." << std::endl;
+			return ;
+		}
+		std::cout << "Result: " << n2 * n3 << std::endl;
+	}
+	else
+	{
+		if (std::stol(odd) > 2147483647 || std::stol(data[pairs]) > 2147483647)
+		{
+			std::cout << "Error: It's a big number..." << std::endl;
+			return ;
+		}
+		float n2 = std::stof(odd);
+		float n3 =  std::stof(data[pairs]);
+		std::cout << "Result: " << n2 * n3 << std::endl;
+	}
 }
 
 int		subSecurity(std::string securityTest)
@@ -181,6 +214,20 @@ int		subSecurity(std::string securityTest)
 	return 0;
 }
 
+int	isNegative(std::string odd)
+{
+	int i;
+	i = 0;
+
+	while (odd[i] != '\0')
+	{
+		if (odd[i] == '-')
+			return 1;
+		i++;
+	}
+	return 0;
+}
+
 void displayCount(std::ifstream & excelBase,
 		std::map<std::string,std::string> & data)
 {
@@ -188,6 +235,7 @@ void displayCount(std::ifstream & excelBase,
 	std::string pairs;
 	std::string odd;
 	int numberSecurity = 0;
+	int negative = 0;
 	while(!excelBase.eof())
 	{
 		getline(excelBase, ifs);
@@ -202,22 +250,22 @@ void displayCount(std::ifstream & excelBase,
 		for (int i = 4; i < 6 && numberSecurity == 10; i++)
 		{
 			getline(test, sub, '|');
-			//std::cout << sub << std::endl;
 			if (i % 2 == 0)
 			{
-
 				pairs = deleteSpace(sub, 1);
 				count += 1;
 			}
 			else
 			{
 				odd = deleteSpace(sub, 2);
+				negative = isNegative(odd);
 				count += 1;
 			}
 		}
-		//return ;
 		if (numberSecurity == 0)
-			std::cout << "Error..." << std::endl;
+			std::cout << "Error... Format correctly" << std::endl;
+		else if(negative == 1)
+			std::cout << "Is a negative number..." << std::endl;
 		else
 			displaying(pairs, odd, data);
 	}
