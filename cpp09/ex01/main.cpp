@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: jinacio- <jinacio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 17:00:17 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/14 20:50:55 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:12:19 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 	pegar número por número de uma string
+	usar o try and catch na main
 */
 
 
@@ -32,3 +33,6 @@ int main(int argc, char *argv[])
 		std::cout << "Get out! " << std::endl;
 	//calculing(rpn);
 }
+
+//1 2 * 2 / 2 * 2 4 - +
+ 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: jinacio- <jinacio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:56:01 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/14 20:46:50 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:30:16 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class RPN
 		RPN (RPN const &cpy);
 		RPN &operator=(RPN const &cpy);
 		void insert(char *str);
+		void calculing (char str);
 
 };
 
