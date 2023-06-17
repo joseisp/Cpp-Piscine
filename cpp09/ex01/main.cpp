@@ -6,7 +6,7 @@
 /*   By: jinacio- <jinacio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 17:00:17 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/17 14:12:19 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:09:36 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ int main(int argc, char *argv[])
 	int i = 0;
 	int aux;
 
-	if(argc == 2)
+	try
 	{
+		if (argc != 2)
+			throw "error... check the input";
 		rpn.insert(argv[1]);
 	}
-	else
-		std::cout << "Get out! " << std::endl;
-	//calculing(rpn);
+	catch(const char *msg)
+	{
+		std::cerr << msg << std::endl;
+	}
 }
 
 //1 2 * 2 / 2 * 2 4 - +
