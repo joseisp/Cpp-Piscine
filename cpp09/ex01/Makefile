@@ -1,5 +1,5 @@
 
-CC = g++
+CC = c++
 
 CFLAGS = -std=c++98
 
