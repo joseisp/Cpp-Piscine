@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:09:24 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/06 21:33:08 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:09:39 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,7 +207,9 @@ int		subSecurity(std::string securityTest)
 			}
 			return 0;
 		}
-		else if (!(securityTest[i] >= '0' && securityTest[i] <= '9') && securityTest[i] != '-' && securityTest[i] != '|' && securityTest[i] != ' ')
+		else if (!(securityTest[i] >= '0' && securityTest[i] <= '9') &&
+		securityTest[i] != '-' && securityTest[i] != '|'
+		 && securityTest[i] != ' ')
 			break;
 		i++;
 	}

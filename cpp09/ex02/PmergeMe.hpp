@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:42:41 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/25 20:00:08 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:25:53 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ class PmergeMe
 		std::vector<int> vec;
 		std::deque<int> deq;
 	public:
-		PmergeMe(/* args */);
+		PmergeMe();
 		~PmergeMe();
+		PmergeMe (PmergeMe const &cpy);
+		PmergeMe &operator=(PmergeMe const &cpy);
+
 		void init (char **init, int argc);
-		void printable();
+		void printable(std::string before_or_after);
 		template < typename T >
 		void MergeSortedIntervals(T & v, int s, int m, int e)
 		{

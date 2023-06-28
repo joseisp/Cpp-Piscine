@@ -6,7 +6,7 @@
 /*   By: jinacio- < jinacio-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:56:15 by jinacio-          #+#    #+#             */
-/*   Updated: 2023/06/25 20:06:28 by jinacio-         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:25:25 by jinacio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,27 @@ PmergeMe::PmergeMe(){}
 
 PmergeMe::~PmergeMe(){}
 
-void PmergeMe::printable ()
+PmergeMe::PmergeMe (PmergeMe const &cpy)
+{
+	*this = cpy;
+}
+
+PmergeMe &PmergeMe::operator=(PmergeMe const &cpy)
+{
+	if(this == &cpy)
+		return *this;
+	this->deq = cpy.deq;
+	this->vec = cpy.vec;
+	return *this;
+}
+
+void PmergeMe::printable (std::string before_or_after)
 {
 	size_t i = 0;
-	std::cout << "After: ";
+	if (before_or_after == "Before")
+		std::cout << "Before: ";
+	else
+		std::cout << "After: ";
 	while (i < this->vec.size())
 	{
 		if (i < 5 )
@@ -27,35 +44,44 @@ void PmergeMe::printable ()
 		else
 		{
 			std::cout << "[...] " << std::endl;
-			break;
+			return ;
 		}
 		i++;
 	}
+	std::cout << "\n";
 }
 
 void PmergeMe::init(char **init, int argc)
 {
-	//int n1 = 0;
 	struct timeval start, end;
 	double time_taken;
 
-	std::cout << "Before: ";
 	for (int i = 0; i < argc - 1; i++)
 	{
-		int aux = std::stoi(init[i + 1]);
-		this->vec.push_back(aux);
-		this->deq.push_back(aux);
-		if (i < 5)
-			std::cout << aux << " ";
-		else if (i == 5)
-			std::cout << "[...]";
-	}
-	std::cout << "\n";
+		try
+		{
+			int aux = std::stoi(init[i + 1]);
+			if (aux < 0)
+			{
+				std::cout << "Error..." << std::endl;
+				exit(0);
+			}
+			this->vec.push_back(aux);
+			this->deq.push_back(aux);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "Error... Out of range" << '\n';
+			exit(0);
+		}
 
+	}
+
+	this->printable("Before");
 	gettimeofday(&start, NULL);
 	std::ios_base::sync_with_stdio(false);
 	this->MergeSort(this->vec, 0, this->vec.size() - 1);
-	this->printable();
+	this->printable("After");
 	gettimeofday(&end, NULL);
 	time_taken = (end.tv_sec - start.tv_sec) * 1e6;
 	time_taken = (time_taken + (end.tv_usec - start.tv_usec)) * 1e-6;

@@ -1,7 +1,7 @@
 
 CC = c++
 
-CFLAGS = -std=c++98
+CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 TARGET = calculadora_rpn
 

@@ -2,7 +2,7 @@ CC=c++
 
 CFLAGS=-c -Wall
 
-NAME=pmergeme
+NAME=PmergeMe
 
 all: $(NAME)
 
